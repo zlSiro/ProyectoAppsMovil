@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detalleCurso</ion-title>
+    <ion-title>Detalle Curso</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalleCurso</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <div class="qr-container">
+    <img [src]="qrDataURL" *ngIf="qrDataURL" class="qr-image">
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nombre Curso : {{ nombreCurso }}</ion-card-title>
+      <ion-card-title>ID Curso : {{ idCurso }}</ion-card-title>
+      <ion-card-title>Codigo Curso : {{ codigoCurso }}</ion-card-title>
+      <ion-card-title>Seccion Curso : {{ seccionCurso }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col><strong>RUT</strong></ion-col>
+      <ion-col><strong>Nombre</strong></ion-col>
+      <ion-col><strong>Estado</strong></ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let alumno of alumnos">
+      <ion-col>{{ alumno.id }}</ion-col>
+      <ion-col>{{ alumno.nombre }}</ion-col>
+      <ion-col>
+        <!-- Circulo de estado-->
+         <span [ngStyle]="{'background-color': alumno.status === 1 ? 'green' : 'red'}" class="estado-circle"></span>
+         {{ alumno.estado }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-list>
+    <ion-item *ngFor = "let alumno of alumnos">
+      <ion-label>
+        <h5>Rut : {{ alumno.id }}</h5>
+        <h5>Nombre : {{ alumno.nombre }}</h5>
+        <h5>Estado : {{ alumno.estado }}</h5>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
