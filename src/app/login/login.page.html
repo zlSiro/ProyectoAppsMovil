@@ -1,13 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <ion-toolbar> 
+   <ion-title>Login</ion-title> 
+  </ion-toolbar> 
+ </ion-header> 
+ 
+ <ion-content [fullscreen]="true" class="login-content"> 
+  <ion-item> 
+   <!-- <ion-input label="Default input" [(ngModel)]="user.apellido"></ion-input> --> 
+  </ion-item> 
+ 
+  <div class="centered-container"> 
+   <img src="assets/Duoc.png" alt="Login Image" class="login-image"> 
+   <h1 class="welcome-text">Bienvenido al Control de Asistencia</h1>
+  </div> 
+ 
+  <form [formGroup]="usuario"> 
+   <ion-item> 
+    <ion-input label="Usuario" labelPlacement="floating" placeholder="Usuario" formControlName="user"></ion-input> 
+   </ion-item>  
+ 
+   <ion-item> 
+    <ion-input label="Contraseña" type="password" labelPlacement="floating" placeholder="Contraseña" formControlName="pass">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input> 
+   </ion-item>   
+ 
+   <!-- <ion-button expand="block" color="success" [disabled]="!usuario.valid" [routerLink]="['/homaalumno']" fill="outline">Ingresar</ion-button> --> 
+   <ion-button expand="block" color="success" (click)="navegarExtras()" fill="outline">Ingresar</ion-button> 
+   <!-- <ion-button expand="block" color="success" [routerLink]="['/home']" fill="outline">Nav RouiterLink</ion-button> --> 
+  </form> 
+ 
+  <!-- <ion-card #card> 
+   <ion-card-content>Card</ion-card-content> 
+  </ion-card> 
+  <ion-button (click)="play()">Play</ion-button> -->
+ 
+ </ion-content>
