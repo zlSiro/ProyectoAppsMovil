@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { FormControl, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormControl,FormGroup,Validators } from '@angular/forms';
+import { AuthServiceService } from '../service/auth-service.service'; 
 import { AlertController } from '@ionic/angular';
 import { ConsumoApiService } from '../service/consumo-api.service';
-import { AuthServiceService } from '../service/auth-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,13 @@ import { AuthServiceService } from '../service/auth-service.service';
   styleUrls: ['./login.page.scss'],
 })
 
+
+
 export class LoginPage implements OnInit {
 
   constructor(
-    private router: Router,
-    private alertController: AlertController,
+    private router: Router, 
+    private alertController: AlertController, 
     private authService: AuthServiceService,
     private consumoApi: ConsumoApiService) { }
 
@@ -25,12 +28,13 @@ export class LoginPage implements OnInit {
   }
 
   usuario = new FormGroup({
-    
-    user: new FormControl('',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
-    pass: new FormControl('',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
-  });
 
-  async navegarExtras() {
+    user: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),  
+    pass: new FormControl('',[Validators.required, Validators.minLength(4),Validators.maxLength(20)]),
+    
+   });
+  
+   async navegarExtras() {
     const correo = this.usuario.value.user || '';
     const password = this.usuario.value.pass || '';
 
@@ -59,7 +63,7 @@ export class LoginPage implements OnInit {
             this.router.navigate(['/alumno'], setData);
           }
         },
-        (error: any) => {
+        (error) => {
           // Muestra un mensaje de error si las credenciales son incorrectas
           this.presentAlert("Error Login", "Usuario y/o contraseña son incorrectos");
         }
@@ -77,6 +81,19 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+
+      /* const loginMap: { [key: string]: string} = {
+        'profesor:1234': '/home',
+        'estudiante:1234': '/alumno'
+      }; */
+
+
+      /* const userPassKey = `${this.usuario.value.user}:${this.usuario.value.pass}`;
+      if (loginMap[userPassKey]) {
+        this.router.navigate([loginMap[userPassKey]], setData);
+      } else {
+        this.presentAlert("Error Login", "Usuario y/o contraseña son incorrectos")
+      } */
 
   ngOnInit() : void {
     this.navegar()
