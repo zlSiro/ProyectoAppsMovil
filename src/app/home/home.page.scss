@@ -1,27 +1,44 @@
-#container {
+#home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+ion-title {
+  font-family: 'Allura', 'Dancing Script', sans-serif; /* Aplica la fuente personalizada */
+  font-size: 2em; /* Ajusta el tamaño si es necesario */
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  color: #0e273b;
 }
+ion-list {
+  ion-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #0e273b;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+    ion-label {
+      h2, h3 {
+        margin: 0;
+        line-height: 1.4;
+      }
+    }
 
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+    ion-button {
+      min-width: auto;
+      font-size: 14px;
+      padding: 5px 10px;
+      white-space: nowrap;
+      color: #fab427; /* Color del texto */
+      --border-color: #fab427; /* Color del borde */
+      --background: transparent; /* Fondo transparente si es outline */
+      --fill: outline; /* Asegura que el botón sea outline */
+    }
+    
+  }
 }
