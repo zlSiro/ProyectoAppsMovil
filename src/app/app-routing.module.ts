@@ -5,11 +5,12 @@ import { guardGuard } from './guard/guard.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [guardGuard]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -18,18 +19,21 @@ const routes: Routes = [
   },
   {
     path: 'detalle-curso',
-    loadChildren: () => import('./detalle-curso/detalle-curso.module').then( m => m.DetalleCursoPageModule)
+    loadChildren: () => import('./detalle-curso/detalle-curso.module').then( m => m.DetalleCursoPageModule),
+    canActivate: [guardGuard]
   },
   {
     path: 'home-alumno',
-    loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule)
+    loadChildren: () => import('./home-alumno/home-alumno.module').then( m => m.HomeAlumnoPageModule),
+    canActivate: [guardGuard]
   },
   {
     path: 'alumno',
-    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule)
+    loadChildren: () => import('./alumno/alumno.module').then( m => m.AlumnoPageModule),
+    canActivate: [guardGuard]
   },
   {
-    path: 'page404',
+    path: '**',
     loadChildren: () => import('./page404/page404.module').then( m => m.Page404PageModule)
   }
 ];
