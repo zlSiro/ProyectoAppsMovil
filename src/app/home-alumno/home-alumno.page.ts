@@ -39,13 +39,13 @@ export class HomeAlumnoPage implements OnInit {
   async requestCameraPermission() {
     if (Capacitor.getPlatform() !== 'web') {
       const cameraStatus = await Camera.checkPermissions();
-
+      console.log('Estado de permisos:', cameraStatus);
+  
       if (cameraStatus.camera !== 'granted') {
+        console.log('Permisos no otorgados, solicitando...');
         await Camera.requestPermissions();
-        this.startScanner();
-      } else {
-        this.startScanner();
       }
+      this.startScanner();
     }
   }
 
@@ -89,6 +89,7 @@ export class HomeAlumnoPage implements OnInit {
 
     this.apiService.registrarAsistencia(this.idAlumno, codigo, seccion, fecha).subscribe(response => {
       console.log(response);
+      console.log('Datos enviados para asistencia:', body);
     });
   }
 
