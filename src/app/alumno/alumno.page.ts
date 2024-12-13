@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alumno',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlumnoPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+  //Metodo que permite navergar como si fuera un HREF
+  navegar(){
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit() {
+    this.navegar()
   }
 
 }

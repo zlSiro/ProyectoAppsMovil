@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>alumno</ion-title>
+    <ion-title>Asistencia Registrada</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">alumno</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="confirmation-container">
+    <ion-icon name="checkmark-circle" size="large"></ion-icon>
+    <h2>¡Tu asistencia ha sido registrada correctamente!</h2>
+    <ion-button expand="block" size="large" (click)="navegar()">Volver al Inicio</ion-button>
+  </div>
 </ion-content>
