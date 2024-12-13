@@ -14,8 +14,8 @@ export class ConsumoApiService {
   }
 
   //apiURL = 'https://jsonplaceholder.typicode.com';
-  apiURL : string = 'http://localhost:5000/';
-  //apiURL : string = 'https://bw2zcpv5-5000.brs.devtunnels.ms/'
+  //apiURL : string = 'http://localhost:5000/';
+  apiURL : string = 'https://8s3m51n6-5000.brs.devtunnels.ms/'
 
   constructor(private httpClient: HttpClient) { }
 

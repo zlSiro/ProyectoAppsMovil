@@ -60,7 +60,7 @@ export class LoginPage implements OnInit {
           if (response.tipoPerfil === 1) {
             this.router.navigate(['/home'], setData);
           } else if (response.tipoPerfil === 2) {
-            this.router.navigate(['/alumno'], setData);
+            this.router.navigate(['/home-alumno'], setData);
           }
         },
         (error) => {

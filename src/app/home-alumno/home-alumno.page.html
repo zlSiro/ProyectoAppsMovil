@@ -1,13 +1,13 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>homeAlumno</ion-title>
+    <ion-title>Alumno</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">homeAlumno</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-button (click)="startScanner()">Scannear QR</ion-button>
+
+  <div *ngIf="imageUrl">
+    <img [src]="imageUrl" />
+  </div>
 </ion-content>

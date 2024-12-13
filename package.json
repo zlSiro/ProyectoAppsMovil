@@ -28,6 +28,7 @@
     "@capacitor/haptics": "6.0.2",
     "@capacitor/keyboard": "6.0.3",
     "@capacitor/status-bar": "6.0.2",
+    "@ionic-native/qr-scanner": "^5.36.0",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.0.0",
     "qrcode-generator": "^1.4.4",
